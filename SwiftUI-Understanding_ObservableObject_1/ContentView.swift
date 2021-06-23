@@ -8,9 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var userSettings = UserSettings()
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack {
+            Text("\(userSettings.score)")
+                .padding()
+                .font(.largeTitle)
+            Button("Change Score") {
+                userSettings.score += 1
+            }
+            .padding(10)
+            .font(.headline)
+            .foregroundColor(.white)
+            .background(Color.blue)
+            FancyScoreView(score: $userSettings.score)
+        }
     }
 }
 

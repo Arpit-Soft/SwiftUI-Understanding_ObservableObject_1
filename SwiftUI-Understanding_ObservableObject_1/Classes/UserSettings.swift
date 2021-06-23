@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+class UserSettings: ObservableObject {
+    @Published var score = 0
+}
